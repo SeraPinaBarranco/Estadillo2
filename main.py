@@ -22,7 +22,7 @@ def inicio():
    
     tk = Tk.Tk()
     
-    ruta = "\\datos\policia\Oficina\EscudoJPG.jpg"
+    ruta = "\\datos\policia\OficinaTecnica\escudos\EscudoJPG.jpg"
     rutaABS= os.path.abspath(ruta)
 
     #FECHA DEL ESTADILLO
@@ -78,7 +78,7 @@ def inicio():
     reg_ent= registro_entrada(fechaAyer)
 
     #Imagen del ESCUDO
-    img = f"\\\datos\\policia\\OficinaTecnica\\ESCUDOS\\EscudoJPG.jpg"
+    img = f"\\\datos\\policia\\Oficina\\EscudoJPG.jpg"
 
     #obtiene el template y con "render" le dan las variables
     #rendered = env.get_template("mytemplate.html").render(personal=pers, listado_personal=v, titulo="Estadillo", fecha= fecha, ruta= rutaABS, bajas = baja, ayto=ayto, jpt=jpt,cam=cam, radar=radares, deposito=depositos, tvd= tipoVehDep, reg_ent=reg_ent, imagen=img)
@@ -104,9 +104,11 @@ def inicio():
     
     #OP 3
     environment = Environment()
+
+    meta = '<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>'
     
     temp = environment.from_string(textoweb.myHTML)
-    outputText=temp.render(personal=pers, listado_personal=v, titulo="Estadillo", fecha= fecha, ruta= rutaABS, bajas = baja, ayto=ayto, jpt=jpt,cam=cam, radar=radares, deposito=depositos, tvd= tipoVehDep, reg_ent=reg_ent, imagen=img)
+    outputText=temp.render(mm = meta,personal=pers, listado_personal=v, titulo="Estadíllo", fecha= fecha, ruta= rutaABS, bajas = baja, ayto=ayto, jpt=jpt,cam=cam, radar=radares, deposito=depositos, tvd= tipoVehDep, reg_ent=reg_ent, imagen=img)
 
     with open(f"\\\datos\\policia\\Oficina\\ESTADILLOS\\{filename}","w") as f:
         f.write(outputText)

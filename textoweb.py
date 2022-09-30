@@ -4,9 +4,9 @@ myHTML = """
 <html lang="es">
 <head>
     <!-- <meta content="text/html" charset="UTF-8"> -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    {{ mm }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>Estadillo diario</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <!-- <body style="text-align:center;"> -->
@@ -20,7 +20,7 @@ myHTML = """
     <!-- Tablas de situación -->
     <div class="grid-container1">
         <div class="content grid-item1" style="text-align: center;">
-            <div style="text-align: center; background-color: rgb(189, 189, 196); width: 39.7vw; ">SITUACI&Oacute;N PERSONAL</div>
+            <div style="text-align: center; background-color: rgb(189, 189, 196); width: 39.7vw; ">SITUACIÓN PERSONAL</div>
             <div class="fila">
                 <table border="1">
                    
@@ -102,27 +102,30 @@ myHTML = """
     </div>
 
     <div class="grid-container2">
-        <div class="bajas grid-item-d1" style="margin-top:3vh; text-align:center;">
-            <table>
-                <caption>AGENTES DE BAJA</caption>
-                <thead>
-                    <tr>
-                        <th>Numero profesional</th>
-                        <th>Fecha desde</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for baja in bajas %}
-                        <tr>
-                            <td>{{ baja[0] }}</td>
-                            <td>{{ baja[1] }}</td>
-                        </tr>
-                    {% endfor%}
-                </tbody>
-            </table>
-        </div>
+        
         
         <div class="columna-2">
+
+            <div class="bajas grid-item-d1" style="margin-top:3vh; text-align:center;">
+                <table>
+                    <caption>AGENTES DE BAJA</caption>
+                    <thead>
+                        <tr>
+                            <th>Numero profesional</th>
+                            <th>Fecha desde</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for baja in bajas %}
+                            <tr>
+                                <td>{{ baja[0] }}</td>
+                                <td>{{ baja[1] }}</td>
+                            </tr>
+                        {% endfor%}
+                    </tbody>
+                </table>
+            </div>
+            
             <div class="ayto" style="margin-top:3vh; text-align:center;">
                 <table>
                     <caption>DENUNCIAS</caption>
@@ -215,12 +218,9 @@ myHTML = """
                     </tbody>
                 </table>
             </div>
-        </div>
 
-    </div>
-
-    <div class="entrada-firma">
-        <div class="entrada" style="margin-top:3vh; text-align:center; ">
+            <!-- -->
+                <div class="deposito" style="margin-top:3vh; text-align:center; ">
             <table>
                 <caption>DATOS REGISTRO DE ENTRADA</caption>
                 <thead>                
@@ -241,8 +241,38 @@ myHTML = """
                 </tbody>
             </table>
         </div>
+            <!-- -->
 
-        <div class="firma" style="margin-top: 3vh;">
+
+        </div>
+
+    </div>
+
+    <div class="entrada-firma" style="float:left">
+        <!--
+        <div class="entrada" style="margin-top:3vh;">
+            <table>
+                <caption>DATOS REGISTRO DE ENTRADA</caption>
+                <thead>                
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Tipo</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for re in reg_ent %}
+                    <tr>
+                        <td>{{ re[0] }}</td>
+                        <td>{{ re[1] }}</td>                    
+                        <td>{{ re[2] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        -->
+        <div class="firma" style="margin-top: 3vh; text-align:left">
             <div class="responsable">
                 <p>La Oficial responsable de la UA de Polic&iacute;a Local</p>
             </div>
@@ -281,10 +311,15 @@ myHTML = """
         .grid-container2{
             row-gap: 25px;
         }
+        .columna-2 {
+            grid-column-start: 1;
+            grid-column-end: 5;
+        }
         .columna-2{
             display: flex;
-            gap: 1px;
-            flex-direction: column;
+            
+            gap: 5px;
+            flex-direction: row;
         }
         .grid-item1{
             grid-column-start: 1;

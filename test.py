@@ -1,5 +1,6 @@
 
 #import oracledb as ora
+from encodings.utf_8 import encode
 import cx_Oracle as ora
 
 #ora.init_oracle_client()
@@ -478,7 +479,7 @@ def registro_entrada(fecha='01/01/2022'):
             select
                     to_char(RegistroEntrada.fecharegistro,
                     'DD/MM/YYYY') as fecharegistro,
-                    substr( hechoview2_.descripcion,4) as descripcion,
+                    REPLACE(substr( hechoview2_.descripcion,instr(hechoview2_.descripcion,'-')),'-','' ) as descripcion,
                     count(*) as descripcion_1 
                 from
                     RegistroEntrada RegistroEntrada 
@@ -505,4 +506,5 @@ def registro_entrada(fecha='01/01/2022'):
         f = fecha,"",0
         lista.append(f)        
         return lista
+    print(lista)
     return lista 
