@@ -276,7 +276,7 @@ myHTML = """
             <div class="responsable">
                 <p>La Oficial responsable de la UA de Polic&iacute;a Local</p>
             </div>
-            <div class="intendente"  style="margin-top: 8vh;">
+            <div class="intendente"  style="margin-top: 12vh;">
                 <p>El Intendente Jefe de Polic&iacute;a Local</p>
             </div>
         </div>        
