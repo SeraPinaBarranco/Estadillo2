@@ -93,7 +93,7 @@ myHTML = """
                             <td>{{ personal[3] }}</td>                   
                         </tr>
                         <tr>
-                            <td>&nbsp;Intendente&nbsp;</td>
+                            <td>&nbsp;Comisario&nbsp;</td>
                             <td>{{ personal[4] }}</td>
                         </tr>                
                 </tbody>        
@@ -220,27 +220,27 @@ myHTML = """
             </div>
 
             <!-- -->
-                <div class="deposito" style="margin-top:3vh; text-align:center; ">
-            <table>
-                <caption>DATOS REGISTRO DE ENTRADA</caption>
-                <thead>                
-                    <tr>
-                        <th>Fecha</th>
-                        <th>Tipo</th>
-                        <th>Cantidad</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for re in reg_ent %}
-                    <tr>
-                        <td>{{ re[0] }}</td>
-                        <td>{{ re[1] }}</td>                    
-                        <td>{{ re[2] }}</td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+            <div class="deposito" style="margin-top:3vh; text-align:center; ">
+                <table>
+                    <caption>DATOS REGISTRO DE ENTRADA</caption>
+                    <thead>                
+                        <tr>
+                            <th>Fecha</th>
+                            <th>Tipo</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for re in reg_ent %}
+                        <tr>
+                            <td>{{ re[0] }}</td>
+                            <td>{{ re[1] }}</td>                    
+                            <td>{{ re[2] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
             <!-- -->
 
 
@@ -277,7 +277,7 @@ myHTML = """
                 <p>La Oficial responsable de la UA de Polic&iacute;a Local</p>
             </div>
             <div class="intendente"  style="margin-top: 12vh;">
-                <p>El Intendente Jefe de Polic&iacute;a Local</p>
+                <p>El Comisario Jefe de Polic&iacute;a Local</p>
             </div>
         </div>        
     </div>

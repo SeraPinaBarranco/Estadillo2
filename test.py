@@ -76,9 +76,8 @@ def personal():
                             or upper(Personal.numero_profesional) like '%280743%' 
                             or upper(Personal.numero_profesional) like '%280744%' 
                             or upper(Personal.numero_profesional) like '%280745%' 
-                            or upper(Personal.numero_profesional) like '%2807411%' 
-                            or upper(Personal.numero_profesional) like '%2807412%' 
-                            or upper(Personal.numero_profesional) like '%2807413%'
+                            or upper(Personal.numero_profesional) like '%280741%' 
+                         
                         ) 
                         
                     )and Personal.estado_id=28433 
@@ -507,4 +506,35 @@ def registro_entrada(fecha='01/01/2022'):
         lista.append(f)        
         return lista
     print(lista)
+    return lista 
+
+def reg_salida():
+    cursor = conexion.cursor()
+    lista = []
+    sql="""select 
+        SUBSTR(hechoview2_.descripcion ,instr(hechoview2_.descripcion,'-')+1) as descripcion,
+       
+                count(*) as Cantidad 
+            from
+                Registro_salida Registro_salida 
+            left outer join
+                Hecho hecho1_ 
+                    on Registro_salida.hecho_id=hecho1_.id 
+            left outer join
+                HechoView hechoview2_ 
+                    on hecho1_.id=hechoview2_.id 
+            where
+            (
+                trunc(Registro_salida.fechaSalida) = trunc(Sysdate) - 1
+            )
+            group by
+                
+                
+                hechoview2_.descripcion 
+            order by
+                2 DESC """
+    res = cursor.execute(sql)
+    for r in res:                     
+        lista.append(r)          
+        
     return lista 
